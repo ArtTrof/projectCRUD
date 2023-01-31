@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit book</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/book/{id}(id=${book.getId()})}" th:object="${book}">
+  <label for="bookName">Input book title: </label>
+  <input type="text" th:field="*{bookName}" id="bookName"/>
+  <div style="color:red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">Title Error</div>
+  <br/>
+  <label for="author">Input author: </label>
+  <input type="text" th:field="*{author}" id="author"/>
+  <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
+  <br/>
+  <label for="year">Input year: </label>
+  <input type="text" th:field="*{year}" id="year"/>
+  <div style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Year Error</div>
+  <br/>
+  <input type="submit" value="Edit!"/>
+</form>
+
+</body>
+</html>
